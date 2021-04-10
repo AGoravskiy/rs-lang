@@ -5,7 +5,7 @@ export const MenuStyled = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
 
   @media (max-width: 800px) {
     width: 50%;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
   width: 100%;
@@ -6,8 +6,8 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #5600E8;
-  
+  background-color: #5600e8;
+
   & + div {
     flex: 1 0 auto;
   }
@@ -19,7 +19,7 @@ export const HeaderStyled = styled.header`
       font-family: 'Permanent Marker', cursive;
       font-size: 48px;
       line-height: 80px;
-      color: #F2F2F2;
+      color: #f2f2f2;
       margin: 0;
 
       @media (max-width: 800px) {
