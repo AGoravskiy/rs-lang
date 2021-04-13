@@ -19,9 +19,10 @@ import illustration from '../assets/images/settings.png';
 
 const useStyles = makeStyles({
   wrapper: {
-    backgroundColor: '#FCFCFF',
     display: 'flex',
     gap: '1rem',
+    maxWidth: '1440px',
+    margin: '0 auto',
   },
   content: {
     width: '60%',
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
   contentCards: {
     display: 'flex',
     gap: '1rem',
+    flexWrap: 'wrap',
   },
   illustration: {
     width: '40%',
@@ -66,11 +68,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     marginBottom: '10px',
   },
-  title: {
-    marginBottom: '40px',
-    paddingTop: '80px',
-    paddingLeft: '120px',
-  },
+
   subtitle: {
     marginBottom: '20px',
   },
