@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    margin: '1rem',
+    marginRight: '1rem',
   },
   card: {
     paddingTop: 20,

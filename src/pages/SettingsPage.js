@@ -16,6 +16,7 @@ import {
 } from '../store/settingSlice';
 import { useSelector } from 'react-redux';
 import illustration from '../assets/images/settings.png';
+import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -28,6 +29,9 @@ const useStyles = makeStyles({
     width: '60%',
     paddingTop: '80px',
     paddingLeft: '120px',
+    '@media (max-width: 960px)': {
+      width: '100%',
+    },
   },
 
   contentCards: {
@@ -35,33 +39,31 @@ const useStyles = makeStyles({
     gap: '1rem',
     flexWrap: 'wrap',
   },
+  card: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 40,
+    paddingBottom: 60,
+    width: 240,
+  },
+
   illustration: {
     width: '40%',
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'end',
     paddingBottom: '40px',
+    overflow: 'hidden',
+    '@media (max-width: 1164px)': {
+      display: 'none',
+    },
   },
   title: {
     marginBottom: '40px',
   },
-  buttonsContainer: {
-    width: '390px',
-    height: '208px',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px 0px 0px 20px',
-    border: '2px solid #000',
-    marginBottom: '40px',
-    marginRight: '30px',
 
-    '&:hover': {
-      transform: 'translateY(-5px)',
-      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
-    },
-  },
   buttonsWrapper: {
-    width: '210px',
+    width: '200px',
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -72,22 +74,7 @@ const useStyles = makeStyles({
   subtitle: {
     marginBottom: '20px',
   },
-  avatarContainer: {
-    width: '234px',
-    height: '212px',
-    border: '2px solid #000',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    padding: '10px 0px',
-    marginRight: '30px',
-    marginBottom: '60px',
-    '&:hover': {
-      transform: 'translateY(-5px)',
-      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
-    },
-  },
+
   avatarImage: {
     width: '100px',
     height: '100px',
@@ -104,20 +91,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     borderRadius: '6px',
     cursor: 'pointer',
-  },
-  volumeContainer: {
-    width: '320px',
-    border: '2px solid #000',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginLeft: '60px',
-    paddingTop: '10px',
-    '&:hover': {
-      transform: 'translateY(-5px)',
-      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
-    },
+    marginTop: 20,
   },
 });
 
@@ -243,8 +217,9 @@ export const SettingsPage = () => {
         <Typography variant="h2" className={classes.title}>
           Настройки
         </Typography>
+
         <div className={classes.contentCards}>
-          <div className={classes.buttonsContainer}>
+          <Paper className={classes.card}>
             <Typography variant="h4" className={classes.subtitle}>
               Отображение кнопок
             </Typography>
@@ -264,9 +239,8 @@ export const SettingsPage = () => {
                 checked={useSelector((state) => state.settings.DeleteWordBtn)}
               />
             </div>
-          </div>
-
-          <div className={classes.buttonsContainer}>
+          </Paper>
+          <Paper className={classes.card}>
             <Typography variant="h4" className={classes.subtitle}>
               Отображение перевода
             </Typography>
@@ -288,9 +262,8 @@ export const SettingsPage = () => {
                 )}
               />
             </div>
-          </div>
-
-          <div className={classes.avatarContainer}>
+          </Paper>
+          <Paper className={classes.card}>
             <Typography variant="h4" className={classes.subtitle}>
               Аватар
             </Typography>
@@ -311,8 +284,8 @@ export const SettingsPage = () => {
               accept="image/*"
               onChange={(event) => uploadAvatar(event.target.files[0])}
             />
-          </div>
-          <div className={classes.volumeContainer}>
+          </Paper>
+          <Paper className={classes.card}>
             <Typography variant="h6" className={classes.subtitle}>
               Громкость музыки
             </Typography>
@@ -343,7 +316,7 @@ export const SettingsPage = () => {
               value={wordVolume}
               onChange={handleWordVolume}
             />
-          </div>
+          </Paper>
         </div>
       </div>
       <div className={classes.illustration}>
